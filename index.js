@@ -34,10 +34,13 @@ const server=app.listen(port,()=>{
 
 })
 
-//manejador de error 404
-app.use((req,res,next)=>{
-    next(Error(404))
-})
+// Manejador de error 404
+app.use((req, res, next) => {
+    const error = new Error('Not Found');
+    error.statusCode = 404;
+    next(error);
+});
+
 
 //manejador de errores
 app.use(function(err,req,res,next){
