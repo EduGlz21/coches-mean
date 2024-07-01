@@ -17,7 +17,7 @@ cocheRouter.route('/agregar').post((req,res)=>{
 })
 
 //obtener todos los coches de la base de datos 
-cocheRouter.route('/coches').get((res)=>{
+cocheRouter.route('/coches').get((req,res)=>{
     coche.find()
     .then((data)=>{
         res.send(data)
