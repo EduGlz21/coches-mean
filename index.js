@@ -28,7 +28,7 @@ app.use(cors())
 app.use('/api',cocheRouter)
 
 //habilitar el puerto
-const port=process.env.PORT || 4000
+const port=process.env.PORT || 4001
 const server=app.listen(port,()=>{
     console.log('Servidor escuchando en el puerto '+port)
 
