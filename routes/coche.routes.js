@@ -4,7 +4,7 @@ const cocheRouter = express.Router();
 //declaramos un objeto de nuestro modelo
 let coche=require('../models/Coche')
 
-//agregar un nuevo empleado
+//agregar un nuevo coche
 cocheRouter.route('/agregar').post((req,res)=>{
     coche.create(req.body)
     .then((data)=>{
@@ -16,8 +16,8 @@ cocheRouter.route('/agregar').post((req,res)=>{
     })
 })
 
-//obtener todos los empleados de la base de datos 
-cocheRouter.route('/coches').get((req,res)=>{
+//obtener todos los coches de la base de datos 
+cocheRouter.route('/coches').get((res)=>{
     coche.find()
     .then((data)=>{
         res.send(data)
@@ -27,7 +27,7 @@ cocheRouter.route('/coches').get((req,res)=>{
     })
 })
 
-//Eliminar un empleado 
+//Eliminar un coche 
 cocheRouter.route('/eliminar/:id').delete((req,res)=>{
     coche.findByIdAndDelete(req.params.id)
     .then((data)=>{
@@ -50,7 +50,7 @@ cocheRouter.route('/coche/:id').get((req,res)=>{
     })
     })
     
-    //actualizar empleado
+    //actualizar coche
     cocheRouter.route('/actualizar/:id').put((req,res)=>{
         coche.findByIdAndUpdate(req.params.id,{
             $set: req.body
